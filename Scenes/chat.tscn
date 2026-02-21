@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d0pk0w7n1dujg"]
+
+[ext_resource type="Texture2D" path="res://assets/Robots/Untitled_Artwork.png" id="1_eifiy"]
+[ext_resource type="Texture2D" uid="uid://br4a3488o6mhm" path="res://assets/Robots/pink.png" id="2_cxjgb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_krq5k"]
+texture = ExtResource("1_eifiy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xpfup"]
+texture = ExtResource("2_cxjgb")
+
+[node name="Node2D" type="Node2D" unique_id=1818348806]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=233724876]
+z_index = 2
+z_as_relative = false
+offset_left = 32.0
+offset_top = 35.0
+offset_right = 412.0
+offset_bottom = 130.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 13
+text = "dj fy fjh fjyftff  fh dv va dj fy fjh fjyftff  fh dv va dj fy fjh fjyftff  fh dv vdj fy fjh fjyv vdj fy fjh fjyfv vdj fy fjh fjy"
+fit_content = true
+scroll_active = false
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1514153198]
+offset_left = 6.0
+offset_top = -237.0
+offset_right = 693.0
+offset_bottom = 133.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_krq5k")
+
+[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=544510945]
+offset_left = 294.0
+offset_top = -219.0
+offset_right = 721.0
+offset_bottom = 129.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xpfup")
