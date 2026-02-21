@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://cek6pb3fpdnnp"]
 
-[ext_resource type="PackedScene" uid="uid://bute3embaamuq" path="res://Scenes/UI.tscn" id="1_r150o"]
-[ext_resource type="PackedScene" uid="uid://bvpjaxorvvh1a" path="res://Scenes/Chat/AIChatOutput.tscn" id="2_bmxlf"]
 [ext_resource type="Script" uid="uid://1a3k7vjswidb" path="res://Scripts/scene_switch.gd" id="2_idj7w"]
 [ext_resource type="PackedScene" uid="uid://d4h74ntqqmi4q" path="res://assets/3d/metal_table/metal_table.gltf" id="3_kln2b"]
 [ext_resource type="Material" uid="uid://dqt3d2f83dawy" path="res://assets/materials/metal.tres" id="4_jw32o"]
@@ -10,7 +8,6 @@
 [ext_resource type="ArrayMesh" uid="uid://d17dax4oy2vxf" path="res://assets/3d/mouse/mouse.obj" id="6_v1gob"]
 [ext_resource type="Texture2D" uid="uid://d0tg5lwhsq01a" path="res://assets/materials/wall/brick_wall_10_diff_4k.jpg" id="8_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://wvis03euoyvu" path="res://assets/materials/wall/brick_wall_10_disp_4k.png" id="9_bmxlf"]
-[ext_resource type="PackedScene" uid="uid://c5e55gwh11dmg" path="res://Scenes/Chat/Character.tscn" id="10_4kpch"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rgh2o"]
 
@@ -53,12 +50,6 @@ size = Vector3(20, 10, 1)
 [node name="MainScene" type="Node3D" unique_id=1878436907]
 script = ExtResource("2_idj7w")
 
-[node name="AIChatOutput" parent="." unique_id=852880470 instance=ExtResource("2_bmxlf")]
-position = Vector2(746, 584)
-
-[node name="AICharSprite" parent="." unique_id=1818348806 instance=ExtResource("10_4kpch")]
-position = Vector2(1353, 525)
-
 [node name="MainView" type="Camera3D" parent="." unique_id=608768881]
 transform = Transform3D(1, 0, 0, 0, 0.99659294, 0.082477726, 0, -0.082477726, 0.99659294, 0, 1.9654995, 0.8515779)
 fov = 60.0
@@ -66,8 +57,6 @@ fov = 60.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MainView" unique_id=102754147]
 transform = Transform3D(1, 0, 0, 0, 0.9970218, -0.07711925, 0, 0.07711925, 0.9970218, -0.08305907, -0.8171617, 0.48060215)
 mesh = SubResource("CapsuleMesh_rgh2o")
-
-[node name="UI" parent="." unique_id=277024069 instance=ExtResource("1_r150o")]
 
 [node name="ScreenViewport" type="SubViewport" parent="." unique_id=1347186950]
 unique_name_in_owner = true
@@ -110,8 +99,8 @@ surface_material_override/0 = ExtResource("4_jw32o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9267449, -4.2229347)
 mesh = SubResource("BoxMesh_jw32o")
 
-[node name="SpotLight" type="DirectionalLight3D" parent="." unique_id=28279775]
-transform = Transform3D(1, 0, 0, 0, 0.25039688, 0.9681433, 0, -0.9681433, 0.25039688, 0, 5.2130284, -2.0817113)
+[node name="SpotLight" type="DirectionalLight3D" parent="Wall" unique_id=28279775]
+transform = Transform3D(1, 0, 0, 0, 0.25039688, 0.9681433, 0, -0.9681433, 0.25039688, 0, 3.2862835, 2.1412234)
 light_color = Color(1, 1, 0.69411767, 1)
 light_energy = 0.1
 sky_mode = 1
