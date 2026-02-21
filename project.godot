@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+LLMManager="*uid://crcko8mn3deis"
 Global="*uid://f5xbbwnt120n"
 
 [display]
