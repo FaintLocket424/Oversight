@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://duwo34qlstlwo"]
 
+[ext_resource type="Script" uid="uid://bo0c6vujkxvm4" path="res://Scripts/Stats/Stat1.gd" id="1_u72eg"]
+
 [node name="Stats" type="Node2D" unique_id=887630742]
+
+[node name="Stat1" type="RichTextLabel" parent="." unique_id=1199712785]
+offset_left = 631.0
+offset_top = 328.0
+offset_right = 1007.0
+offset_bottom = 557.89136
+scale = Vector2(1, 1.8399999)
+theme_override_font_sizes/normal_font_size = 50
+script = ExtResource("1_u72eg")
