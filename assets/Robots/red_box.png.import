@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcpr6kcs44fe"
-path="res://.godot/imported/red.png-db3ed28be3b4114ab40897fc0d9bc601.ctex"
+uid="uid://c3f1dq2am8m6y"
+path="res://.godot/imported/red_box.png-120e5481180467d178f6ccd7f09c8e1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Robots/red.png"
-dest_files=["res://.godot/imported/red.png-db3ed28be3b4114ab40897fc0d9bc601.ctex"]
+source_file="res://assets/Robots/red_box.png"
+dest_files=["res://.godot/imported/red_box.png-120e5481180467d178f6ccd7f09c8e1e.ctex"]
 
 [params]
 

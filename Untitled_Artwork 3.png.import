@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcpr6kcs44fe"
-path="res://.godot/imported/red.png-db3ed28be3b4114ab40897fc0d9bc601.ctex"
+uid="uid://cc6hk5ij44a3s"
+path="res://.godot/imported/Untitled_Artwork 3.png-15712f13b32f5cd3a1fc589e406c36b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Robots/red.png"
-dest_files=["res://.godot/imported/red.png-db3ed28be3b4114ab40897fc0d9bc601.ctex"]
+source_file="res://Untitled_Artwork 3.png"
+dest_files=["res://.godot/imported/Untitled_Artwork 3.png-15712f13b32f5cd3a1fc589e406c36b8.ctex"]
 
 [params]
 
