@@ -26,6 +26,14 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("Scene_Left"):
 		var prev_room = wrapi(current_room_index - 1, 0, room_list.size())
 		load_scene_into_monitor(prev_room)
+	elif Input.is_action_just_pressed("Blue"):
+		Global.current_AI = "blue"
+	elif Input.is_action_just_pressed("Green"):
+		Global.current_AI = "green"
+	elif Input.is_action_just_pressed("Pink"):
+		Global.current_AI = "pink"
+	elif Input.is_action_just_pressed("Red"):
+		Global.current_AI = "red"
 		
 
 func load_scene_into_monitor(room_index: int):

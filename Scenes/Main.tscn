@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cek6pb3fpdnnp"]
 
 [ext_resource type="PackedScene" uid="uid://bute3embaamuq" path="res://Scenes/UI.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://bvpjaxorvvh1a" path="res://Scenes/chat.tscn" id="2_bmxlf"]
 [ext_resource type="Script" uid="uid://1a3k7vjswidb" path="res://Scripts/scene_switch.gd" id="2_idj7w"]
 [ext_resource type="PackedScene" uid="uid://d4h74ntqqmi4q" path="res://assets/3d/metal_table/metal_table.gltf" id="3_kln2b"]
 [ext_resource type="Material" uid="uid://dqt3d2f83dawy" path="res://assets/materials/metal.tres" id="4_jw32o"]
@@ -50,6 +51,8 @@ size = Vector3(20, 10, 1)
 
 [node name="MainScene" type="Node3D" unique_id=1878436907]
 script = ExtResource("2_idj7w")
+
+[node name="Chat" parent="." unique_id=1818348806 instance=ExtResource("2_bmxlf")]
 
 [node name="MainView" type="Camera3D" parent="." unique_id=608768881]
 transform = Transform3D(1, 0, 0, 0, 0.99659294, 0.082477726, 0, -0.082477726, 0.99659294, 0, 1.9654995, 0.8515779)
