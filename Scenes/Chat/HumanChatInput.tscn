@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d1y7tqwarcfaq"]
+
+[ext_resource type="Script" uid="uid://dfp714hjc8rps" path="res://Scripts/Chat/human.gd" id="1_tbll8"]
+
+[node name="HumanInput" type="Node2D" unique_id=1818348806]
+script = ExtResource("1_tbll8")
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=672117104]
+offset_left = -31.0
+offset_top = -14.0
+offset_right = 37.5
+offset_bottom = 17.0
+
+[node name="HumanBox" type="Sprite2D" parent="." unique_id=1235320626]

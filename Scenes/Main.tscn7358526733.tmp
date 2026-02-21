@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cek6pb3fpdnnp"]
 
 [ext_resource type="PackedScene" uid="uid://bute3embaamuq" path="res://Scenes/UI.tscn" id="1_r150o"]
-[ext_resource type="PackedScene" uid="uid://bvpjaxorvvh1a" path="res://Scenes/chat.tscn" id="2_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://bvpjaxorvvh1a" path="res://Scenes/Chat/AIChatOutput.tscn" id="2_bmxlf"]
 [ext_resource type="Script" uid="uid://1a3k7vjswidb" path="res://Scripts/scene_switch.gd" id="2_idj7w"]
 [ext_resource type="PackedScene" uid="uid://d4h74ntqqmi4q" path="res://assets/3d/metal_table/metal_table.gltf" id="3_kln2b"]
 [ext_resource type="Material" uid="uid://dqt3d2f83dawy" path="res://assets/materials/metal.tres" id="4_jw32o"]
@@ -10,6 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d17dax4oy2vxf" path="res://assets/3d/mouse/mouse.obj" id="6_v1gob"]
 [ext_resource type="Texture2D" uid="uid://d0tg5lwhsq01a" path="res://assets/materials/wall/brick_wall_10_diff_4k.jpg" id="8_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://wvis03euoyvu" path="res://assets/materials/wall/brick_wall_10_disp_4k.png" id="9_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://c5e55gwh11dmg" path="res://Scenes/Chat/Character.tscn" id="10_4kpch"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rgh2o"]
 
@@ -52,7 +53,11 @@ size = Vector3(20, 10, 1)
 [node name="MainScene" type="Node3D" unique_id=1878436907]
 script = ExtResource("2_idj7w")
 
-[node name="Chat" parent="." unique_id=1818348806 instance=ExtResource("2_bmxlf")]
+[node name="AIChatOutput" parent="." unique_id=852880470 instance=ExtResource("2_bmxlf")]
+position = Vector2(702, 636)
+
+[node name="AICharSprite" parent="." unique_id=1818348806 instance=ExtResource("10_4kpch")]
+position = Vector2(1309, 577)
 
 [node name="MainView" type="Camera3D" parent="." unique_id=608768881]
 transform = Transform3D(1, 0, 0, 0, 0.99659294, 0.082477726, 0, -0.082477726, 0.99659294, 0, 1.9654995, 0.8515779)
