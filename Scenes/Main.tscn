@@ -8,6 +8,10 @@
 [ext_resource type="ArrayMesh" uid="uid://d17dax4oy2vxf" path="res://assets/3d/mouse/mouse.obj" id="6_v1gob"]
 [ext_resource type="Texture2D" uid="uid://d0tg5lwhsq01a" path="res://assets/materials/wall/brick_wall_10_diff_4k.jpg" id="8_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://wvis03euoyvu" path="res://assets/materials/wall/brick_wall_10_disp_4k.png" id="9_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://bsom0x22diu2" path="res://assets/Posters/durham.png" id="9_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://uhjl0qck4sey" path="res://assets/Posters/ireland.png" id="10_grg3l"]
+[ext_resource type="Texture2D" uid="uid://c1ee1cf61rnbd" path="res://assets/Posters/dino.png" id="11_frkhe"]
+[ext_resource type="Texture2D" uid="uid://rgeh53vagbs1" path="res://assets/Posters/notarobot.png" id="12_1p5hy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rgh2o"]
 
@@ -46,6 +50,34 @@ uv1_scale = Vector3(3.5, 3.5, 3.5)
 [sub_resource type="BoxMesh" id="BoxMesh_jw32o"]
 material = SubResource("StandardMaterial3D_4kpch")
 size = Vector3(20, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmxlf"]
+transparency = 1
+albedo_texture = ExtResource("9_vy5pj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4kpch"]
+material = SubResource("StandardMaterial3D_bmxlf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1m7h"]
+transparency = 1
+albedo_texture = ExtResource("10_grg3l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_erwvk"]
+material = SubResource("StandardMaterial3D_h1m7h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2w5on"]
+transparency = 1
+albedo_texture = ExtResource("11_frkhe")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_346fj"]
+material = SubResource("StandardMaterial3D_2w5on")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sclb"]
+transparency = 1
+albedo_texture = ExtResource("12_1p5hy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sxkr1"]
+material = SubResource("StandardMaterial3D_0sclb")
 
 [node name="MainScene" type="Node3D" unique_id=1878436907]
 script = ExtResource("2_idj7w")
@@ -104,3 +136,19 @@ transform = Transform3D(1, 0, 0, 0, 0.25039688, 0.9681433, 0, -0.9681433, 0.2503
 light_color = Color(1, 1, 0.69411767, 1)
 light_energy = 0.1
 sky_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=810803558]
+transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, -3.8689663, 0.8318515, 0.558054)
+mesh = SubResource("PlaneMesh_4kpch")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall" unique_id=875661516]
+transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, -3.8689663, -0.6343117, 0.558054)
+mesh = SubResource("PlaneMesh_erwvk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wall" unique_id=1478815540]
+transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 3.8848624, 0.8318515, 0.558054)
+mesh = SubResource("PlaneMesh_346fj")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wall" unique_id=2083110552]
+transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 3.8848624, -0.6343117, 0.558054)
+mesh = SubResource("PlaneMesh_sxkr1")
