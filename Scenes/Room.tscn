@@ -2,5 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d4mopflkj3jhw" path="res://Scripts/room.gd" id="1_5hpqs"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5hpqs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nn86p"]
+
 [node name="Room" type="Area3D" unique_id=2002764083]
 script = ExtResource("1_5hpqs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2107125104]
+shape = SubResource("BoxShape3D_5hpqs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=823558311]
+mesh = SubResource("PlaneMesh_nn86p")
