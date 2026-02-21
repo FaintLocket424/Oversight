@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://beaydxxhwfeid"
+=======
+uid="uid://cehnswidwupaf"
+>>>>>>> refs/remotes/origin/main
 path="res://.godot/imported/chatgpt.png-d034a7da903e8e12a6fcfbab5ac52e2b.ctex"
 metadata={
 "vram_texture": false
