@@ -5,8 +5,27 @@ class_name Robot
 signal message_received(message: Dictionary)
 
 class Terminal:
-	func parse_instruction(instruction: String):
-		pass
+	func execute_instruction(instruction: String) -> void:
+			var parts: Array[String] = instruction.split(" ", false, 1)
+			var command = parts[0]
+			
+			match command:
+				"GOTO":
+					var location = parts[1]
+					pass
+				"MESSAGE":
+					parts = parts[1].split(" ", false, 1)
+					var recipient = parts[0]
+					var message = parts[1]
+					pass
+				"DO":
+					parts = parts[1].split(" ", false, 1)
+					var action = parts[0]
+					var subject = parts[1]
+					pass
+				_:
+					pass
+					
 
 @export var bot_name: String = "GLaDOS"
 @export var ai_model: LLMManager.Model = LLMManager.Model.GEMINI_3_0_FLASH

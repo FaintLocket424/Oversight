@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d0tg5lwhsq01a" path="res://assets/materials/wall/brick_wall_10_diff_4k.jpg" id="8_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://wvis03euoyvu" path="res://assets/materials/wall/brick_wall_10_disp_4k.png" id="9_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://bsom0x22diu2" path="res://assets/Posters/durham.png" id="9_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://bp47g4lte8bfo" path="res://assets/Posters/fish.png" id="10_frkhe"]
 [ext_resource type="Texture2D" uid="uid://uhjl0qck4sey" path="res://assets/Posters/ireland.png" id="10_grg3l"]
 [ext_resource type="Texture2D" uid="uid://c1ee1cf61rnbd" path="res://assets/Posters/dino.png" id="11_frkhe"]
 [ext_resource type="Texture2D" uid="uid://rgeh53vagbs1" path="res://assets/Posters/notarobot.png" id="12_1p5hy"]
@@ -57,6 +58,16 @@ albedo_texture = ExtResource("9_vy5pj")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4kpch"]
 material = SubResource("StandardMaterial3D_bmxlf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1p5hy"]
+transparency = 1
+diffuse_mode = 1
+disable_ambient_light = true
+albedo_color = Color(1, 1, 1, 0.2627451)
+albedo_texture = ExtResource("10_frkhe")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h1m7h"]
+material = SubResource("StandardMaterial3D_1p5hy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1m7h"]
 transparency = 1
@@ -140,6 +151,10 @@ sky_mode = 1
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=810803558]
 transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, -3.8689663, 0.8318515, 0.558054)
 mesh = SubResource("PlaneMesh_4kpch")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Wall" unique_id=1514058243]
+transform = Transform3D(0.25994158, 0, 0, 0, 0.34683937, 0.0008605764, 0, -0.0013438498, 0.22210945, 0.79736924, -0.6458261, 3.6837015)
+mesh = SubResource("PlaneMesh_h1m7h")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall" unique_id=875661516]
 transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, -3.8689663, -0.6343117, 0.558054)
