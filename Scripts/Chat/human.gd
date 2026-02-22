@@ -20,3 +20,7 @@ func _process(delta: float) -> void:
 		$TextBox.texture = pink_box
 	elif Global.current_AI == "red":
 		$TextBox.texture = red_box
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	print(new_text)

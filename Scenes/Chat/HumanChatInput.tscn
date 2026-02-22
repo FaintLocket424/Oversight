@@ -7,13 +7,15 @@
 script = ExtResource("1_tbll8")
 
 [node name="LineEdit" type="LineEdit" parent="." unique_id=672117104]
-offset_left = -259.0
-offset_top = -64.0
-offset_right = 324.0
-offset_bottom = 41.0
+offset_left = -323.0
+offset_top = -34.0
+offset_right = 323.0
+offset_bottom = 32.0
 
 [node name="TextBox" type="Sprite2D" parent="." unique_id=1219701349]
 z_index = -1
-position = Vector2(228, -342.99997)
-scale = Vector2(0.6, 0.6)
+position = Vector2(181, -221.00002)
+scale = Vector2(0.54537034, 0.3969136)
 texture = ExtResource("2_dneiu")
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

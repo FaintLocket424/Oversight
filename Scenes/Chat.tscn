@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://br4a3488o6mhm" path="res://assets/Robots/pink.png" id="1_yrhy1"]
 [ext_resource type="PackedScene" uid="uid://c5e55gwh11dmg" path="res://Scenes/Chat/Character.tscn" id="2_1jmr8"]
 [ext_resource type="PackedScene" uid="uid://d1y7tqwarcfaq" path="res://Scenes/Chat/HumanChatInput.tscn" id="3_5yoc0"]
-[ext_resource type="Script" uid="uid://d31xq8ou1tykk" path="res://Scripts/Chat/Selector.gd" id="4_nrkek"]
+[ext_resource type="Script" path="res://Scripts/Chat/Selector.gd" id="4_nrkek"]
 [ext_resource type="Texture2D" uid="uid://cgcpr6kcs44fe" path="res://assets/Robots/red.png" id="4_yrhy1"]
 [ext_resource type="Texture2D" uid="uid://eflui863j1uq" path="res://assets/Robots/blue.png" id="5_p3bah"]
 [ext_resource type="Texture2D" uid="uid://bvkbs1plrcjf5" path="res://assets/Robots/green.png" id="7_5yoc0"]
@@ -16,10 +16,10 @@ visible = false
 position = Vector2(761, 596)
 
 [node name="AICharSprite" parent="." unique_id=747053974 instance=ExtResource("2_1jmr8")]
-position = Vector2(1361, 651)
+position = Vector2(1368, 634)
 
 [node name="HumanInput" parent="." unique_id=221749691 instance=ExtResource("3_5yoc0")]
-position = Vector2(755, 605)
+position = Vector2(762, 660)
 
 [node name="Selector" type="Node2D" parent="." unique_id=984826399]
 visible = false
