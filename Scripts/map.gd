@@ -1,12 +1,17 @@
 extends Node3D
 
+var rooms: Array[Room] = []
 
-# Called when the node enters the scene tree for the first time.
+func room_names() -> Array[String]:
+	var names: Array[String] = []
+	for room in rooms:
+		names.append(room.name)
+	return names
+
 func _ready() -> void:
-	var r = get_node("CoolingRoom") as Room
-	print(r.describe())
+	for child in get_children():
+		if child is Room:
+			rooms.append(child)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
