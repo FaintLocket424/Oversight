@@ -20,13 +20,7 @@ func _ready():
 func _process(_delta):
 	var total_views = cameras.size() + 2
 	
-	if Input.is_action_just_pressed("Scene_1"):
-		set_active_view(0) # Stats
-	elif Input.is_action_just_pressed("Scene_2"):
-		set_active_view(1) # Chat
-	elif Input.is_action_just_pressed("Scene_3"):
-		set_active_view(2) # Camera 1
-	elif Input.is_action_just_pressed("Scene_Right"):
+	if Input.is_action_just_pressed("Scene_Right"):
 		var next_view = wrapi(current_view_index + 1, 0, total_views)
 		set_active_view(next_view)
 	elif Input.is_action_just_pressed("Scene_Left"):
