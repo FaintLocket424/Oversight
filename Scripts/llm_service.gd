@@ -87,8 +87,6 @@ func _load_env_file():
 			var key = parts[0].strip_edges()
 			var value = parts[1].strip_edges()
 			_env_data[key] = value
-	
-	print(_env_data)
 
 func _send_client_request(url: String, headers: PackedStringArray, json_body: String) -> Dictionary:
 	var client = HTTPClient.new()
