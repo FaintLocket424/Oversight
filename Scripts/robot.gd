@@ -35,6 +35,7 @@ class Terminal:
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 var terminal := Terminal.new()
+var location: String = ""
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var is_thinking: bool = false
@@ -82,7 +83,7 @@ func _physics_process(delta):
 	# 4. Apply the velocity to the physics engine
 	move_and_slide()
 
-func go_to_room(room: GameManager.Room):
+func go_to_room(room_name: String):
 	pass
 
 func send_message(target: Node, content: String) -> void:
