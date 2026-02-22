@@ -1,11 +1,38 @@
 [gd_scene format=3 uid="uid://d0wusqbt8t3ct"]
 
+[ext_resource type="PackedScene" uid="uid://d0j1btt4ap8h3" path="res://Scenes/Robot.tscn" id="1_etk83"]
 [ext_resource type="PackedScene" uid="uid://bgb0qfyn3ym8i" path="res://Scenes/Room.tscn" id="1_s486e"]
 [ext_resource type="PackedScene" uid="uid://wcu2eeqvlh6q" path="res://Scenes/Prop.tscn" id="2_7yn8b"]
+[ext_resource type="Texture2D" uid="uid://bw40a4s8smeoj" path="res://assets/materials/Floor/rusty_metal_04_diff_4k.jpg" id="4_r08cw"]
+[ext_resource type="Texture2D" uid="uid://0u5631cisoif" path="res://assets/materials/Floor/rusty_metal_04_disp_4k.png" id="5_00287"]
+[ext_resource type="Texture2D" uid="uid://chfjrkt3ndpsu" path="res://sky.jpg" id="6_00287"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_qttiv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t7yc"]
+albedo_texture = ExtResource("4_r08cw")
+roughness_texture = ExtResource("5_00287")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_etk83"]
+material = SubResource("StandardMaterial3D_5t7yc")
+size = Vector2(40, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_etk83"]
+size = Vector3(39.04657, 0.6895752, 40.150085)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5t7yc"]
+panorama = ExtResource("6_00287")
+
+[sub_resource type="Sky" id="Sky_ngcqm"]
+sky_material = SubResource("PanoramaSkyMaterial_5t7yc")
+
+[sub_resource type="Environment" id="Environment_ws1hi"]
+background_mode = 2
+sky = SubResource("Sky_ngcqm")
 
 [node name="Node3D" type="Node3D" unique_id=1751875547]
+
+[node name="Robot" parent="." unique_id=1516209443 instance=ExtResource("1_etk83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97966456, 0)
 
 [node name="Camera1" type="Camera3D" parent="." unique_id=1166766226]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 2.2511506, 3.3512774)
@@ -19,9 +46,6 @@ current = true
 transform = Transform3D(-0.8442718, 0.18329382, -0.50359565, 0.018301254, 0.9490055, 0.3147279, 0.53560275, 0.25649944, -0.80457306, -2.0540318, 2.2511506, -3.2457023)
 current = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1232676303]
-mesh = SubResource("BoxMesh_qttiv")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1748898925]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.8962402, 0)
 
@@ -31,3 +55,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.984349, 0, 2.4189835)
 [node name="Server1" parent="CoolingRoom" unique_id=1096248185 instance=ExtResource("2_7yn8b")]
 
 [node name="Server2" parent="CoolingRoom" unique_id=1720600974 instance=ExtResource("2_7yn8b")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259441826]
+mesh = SubResource("PlaneMesh_etk83")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=316932239]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1342808647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42660522, -0.24151611, -0.11685181)
+shape = SubResource("BoxShape3D_etk83")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1912647664]
+environment = SubResource("Environment_ws1hi")

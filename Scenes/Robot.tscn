@@ -1,19 +1,21 @@
 [gd_scene format=3 uid="uid://d0j1btt4ap8h3"]
 
 [ext_resource type="Script" uid="uid://d0qmn3ggi4lpo" path="res://Scripts/robot.gd" id="1_g4lcf"]
+[ext_resource type="PackedScene" uid="uid://b4w6suge5t8d5" path="res://assets/3d/robot/Argon.fbx" id="2_kqei7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4lcf"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqei7"]
+radius = 0.3701172
+height = 1.9621582
 
 [node name="Robot" type="CharacterBody3D" unique_id=1516209443]
 script = ExtResource("1_g4lcf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2079733317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09265137, 0)
 shape = SubResource("CapsuleShape3D_g4lcf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1966197604]
-mesh = SubResource("CapsuleMesh_kqei7")
+[node name="Argon" parent="." unique_id=240360317 instance=ExtResource("2_kqei7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8914207, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1374198962]
 
