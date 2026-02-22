@@ -29,7 +29,7 @@ sky_material = SubResource("PanoramaSkyMaterial_5t7yc")
 background_mode = 2
 sky = SubResource("Sky_ngcqm")
 
-[node name="Node3D" type="Node3D" unique_id=1751875547]
+[node name="Map" type="Node3D" unique_id=1751875547]
 
 [node name="RedRobot" parent="." unique_id=1516209443 instance=ExtResource("1_etk83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97966456, 0)
