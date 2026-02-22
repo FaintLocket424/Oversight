@@ -32,7 +32,12 @@ func _on_human_input_text_submitted(new_text: String) -> void:
 	Global.input_text = new_text
 	Global.talking = true
 	
+	while str(Global.output_text) == "":
+		await get_tree().process_frame
+	
 	var chat_instance = output_box_scene.instantiate()
-	chat_instance.position.x = 800
-	chat_instance.position.y = 380
+	chat_instance.position = Vector2(800, 300)
 	add_child(chat_instance)
+	
+	Global.output_text = ""
+	
