@@ -1,0 +1,8 @@
+class_name Room
+extends Area3D
+
+func _ready() -> void:
+	pass
+
+func _process(delta: float) -> void:
+	pass
