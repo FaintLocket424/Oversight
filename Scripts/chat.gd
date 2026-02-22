@@ -1,30 +1,38 @@
 extends Node2D
 
-@onready var blue_char = preload("res://assets/Robots/blue.png")
-@onready var blue_box = preload("res://assets/Robots/blue_box.png")
-@onready var green_char = preload("res://assets/Robots/green.png")
-@onready var green_box = preload("res://assets/Robots/green_box.png")
-@onready var pink_char = preload("res://assets/Robots/pink.png")
-@onready var pink_box = preload("res://assets/Robots/pink_box.png")
-@onready var red_char = preload("res://assets/Robots/red.png")
-@onready var red_box = preload("res://assets/Robots/red_box.png")
+# 1. Preload the scenes and textures
+@onready var output_box_scene = preload("res://Scenes/Chat/AIChatOutput.tscn")
 
-# Called when the node enters the scene tree for the first time.
+# Using a Dictionary makes the code much cleaner and easier to manage
+@onready var ai_textures = {
+	"blue": preload("res://assets/Robots/blue_input.png"),
+	"green": preload("res://assets/Robots/green_input.png"),
+	"pink": preload("res://assets/Robots/pink_input.png"),
+	"red": preload("res://assets/Robots/red_input.png")
+}
+
+var last_ai = ""
+
 func _ready() -> void:
-	pass # Replace with function body.
+	update_ai_appearance()
+	$AICharSprite.hide()
+	$HumanInput.hide()
+	$TextBox.hide()
 
+func _process(_delta: float) -> void:
+	if Global.current_AI != last_ai:
+		update_ai_appearance()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Global.current_AI == "blue":
-		$Character.texture = blue_char
-		$Box.texture = blue_box
-	elif Global.current_AI == "green":
-		$Character.texture = green_char
-		$Box.texture = green_box
-	elif Global.current_AI == "pink":
-		$Character.texture = pink_char
-		$Box.texture = pink_box
-	elif Global.current_AI == "red":
-		$Character.texture = red_char
-		$Box.texture = red_box
+func update_ai_appearance():
+	last_ai = Global.current_AI
+	if ai_textures.has(Global.current_AI):
+		$TextBox.texture = ai_textures[Global.current_AI]
+
+func _on_human_input_text_submitted(new_text: String) -> void:
+	Global.input_text = new_text
+	Global.talking = true
+	
+	var chat_instance = output_box_scene.instantiate()
+	chat_instance.position.x = 800
+	chat_instance.position.y = 380
+	add_child(chat_instance)
