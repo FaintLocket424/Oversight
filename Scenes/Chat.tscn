@@ -1,18 +1,70 @@
 [gd_scene format=3 uid="uid://d0pk0w7n1dujg"]
 
-[ext_resource type="PackedScene" uid="uid://bvpjaxorvvh1a" path="res://Scenes/Chat/AIChatOutput.tscn" id="1_0dddo"]
+[ext_resource type="Script" uid="uid://mi7tmx27u5xn" path="res://Scripts/chat.gd" id="1_lwf2e"]
+[ext_resource type="Texture2D" uid="uid://br4a3488o6mhm" path="res://assets/Robots/pink.png" id="1_yrhy1"]
 [ext_resource type="PackedScene" uid="uid://c5e55gwh11dmg" path="res://Scenes/Chat/Character.tscn" id="2_1jmr8"]
-[ext_resource type="Texture2D" uid="uid://bt34nchf2yu7q" path="res://assets/2d/concrete/rough.png" id="3_1jmr8"]
+[ext_resource type="Texture2D" uid="uid://b3ch2j15x6sur" path="res://assets/Robots/red_input.png" id="3_5yoc0"]
+[ext_resource type="Script" uid="uid://d31xq8ou1tykk" path="res://Scripts/Chat/Selector.gd" id="4_nrkek"]
+[ext_resource type="Texture2D" uid="uid://cgcpr6kcs44fe" path="res://assets/Robots/red.png" id="4_yrhy1"]
+[ext_resource type="Texture2D" uid="uid://eflui863j1uq" path="res://assets/Robots/blue.png" id="5_p3bah"]
+[ext_resource type="Texture2D" uid="uid://bvkbs1plrcjf5" path="res://assets/Robots/green.png" id="7_5yoc0"]
 
 [node name="Chat" type="Node2D" unique_id=320809217]
-
-[node name="AIChatOutput" parent="." unique_id=1818348806 instance=ExtResource("1_0dddo")]
-position = Vector2(440, 566)
+script = ExtResource("1_lwf2e")
 
 [node name="AICharSprite" parent="." unique_id=747053974 instance=ExtResource("2_1jmr8")]
-position = Vector2(1047, 507)
+position = Vector2(1368, 634)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=69864846]
-z_index = -2
-position = Vector2(1036, 569)
-texture = ExtResource("3_1jmr8")
+[node name="HumanInput" type="LineEdit" parent="." unique_id=1108162712]
+offset_left = 493.99994
+offset_top = 582.5
+offset_right = 1140.0
+offset_bottom = 648.5
+
+[node name="TextBox" type="Sprite2D" parent="." unique_id=1855749141]
+z_index = -1
+position = Vector2(997.99994, 395.5)
+scale = Vector2(0.54537034, 0.3969136)
+texture = ExtResource("3_5yoc0")
+
+[node name="Selector" type="Node2D" parent="." unique_id=984826399]
+visible = false
+script = ExtResource("4_nrkek")
+
+[node name="Pink" type="TextureButton" parent="Selector" unique_id=2035555300]
+offset_left = 1161.9999
+offset_top = 275.99997
+offset_right = 2099.0
+offset_bottom = 1446.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_yrhy1")
+
+[node name="Blue" type="TextureButton" parent="Selector" unique_id=334150990]
+offset_left = 904.99994
+offset_top = 49.0
+offset_right = 1860.0
+offset_bottom = 1217.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("5_p3bah")
+
+[node name="Red" type="TextureButton" parent="Selector" unique_id=653028819]
+offset_left = 646.99994
+offset_top = 275.99997
+offset_right = 1622.0
+offset_bottom = 1430.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("4_yrhy1")
+
+[node name="Green" type="TextureButton" parent="Selector" unique_id=2068181201]
+offset_left = 390.0
+offset_top = 49.0
+offset_right = 1321.0
+offset_bottom = 1217.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("7_5yoc0")
+
+[connection signal="text_submitted" from="HumanInput" to="." method="_on_human_input_text_submitted"]
+[connection signal="pressed" from="Selector/Pink" to="Selector" method="_on_pink_pressed"]
+[connection signal="pressed" from="Selector/Blue" to="Selector" method="_on_blue_pressed"]
+[connection signal="pressed" from="Selector/Red" to="Selector" method="_on_red_pressed"]
+[connection signal="pressed" from="Selector/Green" to="Selector" method="_on_green_pressed"]

@@ -6,7 +6,10 @@ enum State {
 	BROKEN
 }
 
-@export var prop_name: String
+var state_description: Dictionary = {
+	State.BROKEN: "%s is broken."
+}
+
 var state: State = State.NORMAL
 
 func _ready() -> void:
@@ -14,3 +17,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+
+func describe() -> String:
+	if state == State.NORMAL:
+		return ""
+	
+	return state_description[state] % [name] + " "
+	
+	
