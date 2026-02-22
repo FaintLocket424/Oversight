@@ -1,25 +1,31 @@
 [gd_scene format=3 uid="uid://d0pk0w7n1dujg"]
 
-[ext_resource type="PackedScene" uid="uid://bvpjaxorvvh1a" path="res://Scenes/Chat/AIChatOutput.tscn" id="1_0dddo"]
+[ext_resource type="Script" uid="uid://mi7tmx27u5xn" path="res://Scripts/chat.gd" id="1_lwf2e"]
 [ext_resource type="Texture2D" uid="uid://br4a3488o6mhm" path="res://assets/Robots/pink.png" id="1_yrhy1"]
 [ext_resource type="PackedScene" uid="uid://c5e55gwh11dmg" path="res://Scenes/Chat/Character.tscn" id="2_1jmr8"]
-[ext_resource type="PackedScene" uid="uid://d1y7tqwarcfaq" path="res://Scenes/Chat/HumanChatInput.tscn" id="3_5yoc0"]
-[ext_resource type="Script" path="res://Scripts/Chat/Selector.gd" id="4_nrkek"]
+[ext_resource type="Texture2D" uid="uid://b3ch2j15x6sur" path="res://assets/Robots/red_input.png" id="3_5yoc0"]
+[ext_resource type="Script" uid="uid://d31xq8ou1tykk" path="res://Scripts/Chat/Selector.gd" id="4_nrkek"]
 [ext_resource type="Texture2D" uid="uid://cgcpr6kcs44fe" path="res://assets/Robots/red.png" id="4_yrhy1"]
 [ext_resource type="Texture2D" uid="uid://eflui863j1uq" path="res://assets/Robots/blue.png" id="5_p3bah"]
 [ext_resource type="Texture2D" uid="uid://bvkbs1plrcjf5" path="res://assets/Robots/green.png" id="7_5yoc0"]
 
 [node name="Chat" type="Node2D" unique_id=320809217]
-
-[node name="AIChatOutput" parent="." unique_id=1818348806 instance=ExtResource("1_0dddo")]
-visible = false
-position = Vector2(761, 596)
+script = ExtResource("1_lwf2e")
 
 [node name="AICharSprite" parent="." unique_id=747053974 instance=ExtResource("2_1jmr8")]
 position = Vector2(1368, 634)
 
-[node name="HumanInput" parent="." unique_id=221749691 instance=ExtResource("3_5yoc0")]
-position = Vector2(762, 660)
+[node name="HumanInput" type="LineEdit" parent="." unique_id=1108162712]
+offset_left = 493.99994
+offset_top = 582.5
+offset_right = 1140.0
+offset_bottom = 648.5
+
+[node name="TextBox" type="Sprite2D" parent="." unique_id=1855749141]
+z_index = -1
+position = Vector2(997.99994, 395.5)
+scale = Vector2(0.54537034, 0.3969136)
+texture = ExtResource("3_5yoc0")
 
 [node name="Selector" type="Node2D" parent="." unique_id=984826399]
 visible = false
@@ -57,6 +63,7 @@ offset_bottom = 1217.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("7_5yoc0")
 
+[connection signal="text_submitted" from="HumanInput" to="." method="_on_human_input_text_submitted"]
 [connection signal="pressed" from="Selector/Pink" to="Selector" method="_on_pink_pressed"]
 [connection signal="pressed" from="Selector/Blue" to="Selector" method="_on_blue_pressed"]
 [connection signal="pressed" from="Selector/Red" to="Selector" method="_on_red_pressed"]
