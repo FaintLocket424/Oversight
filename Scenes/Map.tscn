@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0wusqbt8t3ct"]
 
-[ext_resource type="PackedScene" uid="uid://d0j1btt4ap8h3" path="res://Scenes/Robot.tscn" id="1_etk83"]
+[ext_resource type="PackedScene" path="res://Scenes/Robot.tscn" id="1_etk83"]
 [ext_resource type="PackedScene" uid="uid://bgb0qfyn3ym8i" path="res://Scenes/Room.tscn" id="1_s486e"]
 [ext_resource type="PackedScene" uid="uid://wcu2eeqvlh6q" path="res://Scenes/Prop.tscn" id="2_7yn8b"]
 [ext_resource type="Texture2D" uid="uid://bw40a4s8smeoj" path="res://assets/materials/Floor/rusty_metal_04_diff_4k.jpg" id="4_r08cw"]
@@ -31,7 +31,7 @@ sky = SubResource("Sky_ngcqm")
 
 [node name="Node3D" type="Node3D" unique_id=1751875547]
 
-[node name="Robot" parent="." unique_id=1516209443 instance=ExtResource("1_etk83")]
+[node name="RedRobot" parent="." unique_id=1516209443 instance=ExtResource("1_etk83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97966456, 0)
 
 [node name="Camera1" type="Camera3D" parent="." unique_id=1166766226]
@@ -52,9 +52,9 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2
 [node name="CoolingRoom" parent="." unique_id=2002764083 instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.984349, 0, 2.4189835)
 
-[node name="Server1" parent="CoolingRoom" unique_id=1096248185 instance=ExtResource("2_7yn8b")]
+[node name="Fan" parent="CoolingRoom" unique_id=1096248185 instance=ExtResource("2_7yn8b")]
 
-[node name="Server2" parent="CoolingRoom" unique_id=1720600974 instance=ExtResource("2_7yn8b")]
+[node name="Pipe" parent="CoolingRoom" unique_id=1720600974 instance=ExtResource("2_7yn8b")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259441826]
 mesh = SubResource("PlaneMesh_etk83")

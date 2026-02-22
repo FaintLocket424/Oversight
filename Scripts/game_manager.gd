@@ -1,7 +1,4 @@
 extends Node
 
-class_name GameManager
-
-enum Room {
-	
-}
+func get_map() -> Map:
+	return get_node("/root/Global")
