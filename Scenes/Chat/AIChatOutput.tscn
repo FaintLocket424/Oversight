@@ -6,8 +6,12 @@
 [node name="AIChatOutput" type="Node2D" unique_id=1818348806]
 script = ExtResource("1_sk1yr")
 
+[node name="AIBox" type="Sprite2D" parent="." unique_id=1818216417]
+position = Vector2(228, -342.99997)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_eifiy")
+
 [node name="AIOutput" type="RichTextLabel" parent="." unique_id=233724876]
-z_index = 2
 z_as_relative = false
 offset_left = -302.0
 offset_top = -83.0
@@ -18,8 +22,3 @@ theme_override_font_sizes/normal_font_size = 18
 text = "dj fy fjh fjyftff  fh dv va dj fy fjh fjyftff  fh dv va dj fy fjh fjyftff  fh dv vdj fy fjh fjyv vdj fy fjh fjyfv vdj fy fjh fjy"
 fit_content = true
 scroll_active = false
-
-[node name="AIBox" type="Sprite2D" parent="." unique_id=1818216417]
-position = Vector2(228, -342.99997)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_eifiy")

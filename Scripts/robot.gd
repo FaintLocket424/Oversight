@@ -50,6 +50,17 @@ func _ready():
 		"content": "You are a robot named " + bot_name + ". Keep your responses brief."
 	})
 
+func _process(_delta):
+	
+	if str(Global.input_text) != "":
+		var message: Dictionary = {
+		"sender": null,
+		"sender_name": "human",
+		"content": Global.input_text
+		}
+		Global.input_text = ""
+		receive_message(message)
+
 func _physics_process(delta):
 	# 1. Always apply gravity so the bot doesn't float
 	if not is_on_floor():
@@ -101,7 +112,7 @@ func send_message(target: Node, content: String) -> void:
 		push_warning("Attempted to send a message, but target cannot receive messages.")
 
 func receive_message(message: Dictionary) -> void:
-	print("[%s] Received message from %s: %s" % [bot_name, message["sender_name"].bot_name, message["content"]])
+	print("[%s] Received message from %s: %s" % [bot_name, message["sender_name"], message["content"]])
 	
 	# Emit signal for other local scripts (like a state machine)
 	message_received.emit(message)
@@ -127,6 +138,7 @@ func _process_message(message: Dictionary) -> void:
 		string_history += msg["role"] + ": " + msg["content"] + "\n"
 		
 	var ai_response = await LLMManager.ask(ai_model, string_history)
+	print("AI Response: \"%s\"" % [ai_response])
 	
 	chat_history.append({
 		"role": "assistant",
@@ -135,3 +147,4 @@ func _process_message(message: Dictionary) -> void:
 	
 	is_thinking = false
 	chat_label.text = ai_response
+	Global.output_text = ai_response

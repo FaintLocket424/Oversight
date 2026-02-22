@@ -58,6 +58,8 @@ func ask(model_id: Model, prompt: String) -> String:
 	if api_key == "":
 		return "Error: '%s' is missing from the .env file!" % env_var
 	
+	print("Making AI API request to %s to say %s" % [provider, prompt])
+	
 	match provider:
 		#"openai":
 			#return await _format_openai(prompt, api_key, model_name)
