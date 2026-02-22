@@ -20,8 +20,15 @@ var terminal := Terminal.new()
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var is_thinking: bool = false
 
+var chat_history: Array[Dictionary] = []
+
 func _ready():
 	chat_label.text = ""
+	
+	chat_history.append({
+		"role": "system",
+		"content": "You are a robot named " + bot_name + ". Keep your responses brief."
+	})
 
 func _physics_process(delta):
 	# 1. Always apply gravity so the bot doesn't float
@@ -59,12 +66,11 @@ func _physics_process(delta):
 func go_to_room(room: GameManager.Room):
 	pass
 
-func send_message(target: Node, content: String, message_type: String = "info") -> void:
+func send_message(target: Node, content: String) -> void:
 	# Package the data into a dictionary
 	var message: Dictionary = {
 		"sender": self,
 		"sender_name": bot_name,
-		"type": message_type,
 		"content": content
 	}
 	
@@ -75,7 +81,7 @@ func send_message(target: Node, content: String, message_type: String = "info") 
 		push_warning("Attempted to send a message, but target cannot receive messages.")
 
 func receive_message(message: Dictionary) -> void:
-	print("[%s] Received message from %s: %s" % [bot_name, message["sender_name"], message["content"]])
+	print("[%s] Received message from %s: %s" % [bot_name, message["sender_name"].bot_name, message["content"]])
 	
 	# Emit signal for other local scripts (like a state machine)
 	message_received.emit(message)
@@ -84,16 +90,28 @@ func receive_message(message: Dictionary) -> void:
 	_process_message(message)
 
 func _process_message(message: Dictionary) -> void:
-	match message["type"]:
-		"greeting":
-			# Don't reply to yourself!
-			if message["sender"] != self:
-				send_message(message["sender"], "Hello, human/robot!", "reply")
-		"command":
-			if message["content"] == "move_forward":
-				print("[%s] Executing command: Moving forward..." % bot_name)
-		"reply":
-			# Just acknowledge, do nothing to prevent infinite reply loops
-			pass
-		_:
-			print("[%s] Unknown message type." % bot_name)
+	var sender = message["sender"]
+	var content = message["content"]
+	var sender_name = message.get("sender_name", "Unknown")
+	
+	is_thinking = true
+	chat_label.text = "Thinking..."
+	
+	chat_history.append({
+		"role": "message",
+		"content": sender_name + " says " + content
+	})
+	
+	var string_history: String = ""
+	for msg in chat_history:
+		string_history += msg["role"] + ": " + msg["content"] + "\n"
+		
+	var ai_response = await LLMManager.ask(ai_model, string_history)
+	
+	chat_history.append({
+		"role": "assistant",
+		"content": ai_response
+	})
+	
+	is_thinking = false
+	chat_label.text = ai_response
