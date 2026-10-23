@@ -93,8 +93,8 @@ func _physics_process(delta):
 	# 4. Apply the velocity to the physics engine
 	move_and_slide()
 
-func go_to_room(room: GameManager.Room):
-	pass
+#func go_to_room(room: GameManager.Room):
+	#pass
 
 func send_message(target: Node, content: String) -> void:
 	# Package the data into a dictionary
